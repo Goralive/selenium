@@ -2,22 +2,13 @@ package com.gmail;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
-
 
 public class LoginToGmail {
 
     private WebDriver driver;
     private WebDriverWait wait;
-
-
-    public LoginToGmail(WebDriverWait wait) {
-        this.wait = wait;
-    }
 
     public LoginToGmail(WebDriver driver) {
         this.driver = driver;
@@ -27,7 +18,7 @@ public class LoginToGmail {
     private By loginPassword = By.xpath(".//div[@id='password']//input");
     private By nextButtonEmail = By.xpath(".//div[@id='identifierNext']");
     private By nextButtonPassword = By.xpath(".//div[@id='passwordNext']/content");
-    private By getTitleEmail = By.xpath("//title[text()[contains(.,'Jackson')]]");
+
 
 
     public LoginToGmail typeEmail(String email) {
@@ -54,5 +45,4 @@ public class LoginToGmail {
         driver.findElement(nextButtonPassword).click();
         return new LoginToGmail(driver);
     }
-
 }

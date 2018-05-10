@@ -47,7 +47,7 @@ public class LoginToGmailTest {
 
     @Test
     public void verifyMailAccount() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[@id=':4q']")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[@id=':i']")));
         Assert.assertTrue(driver.getTitle().contains(emailForTest));
     }
 
