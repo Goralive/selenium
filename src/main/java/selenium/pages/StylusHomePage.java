@@ -1,4 +1,4 @@
-package selenium.pages.stylus;
+package selenium.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +14,11 @@ public class StylusHomePage {
     private WebElement searchButton;
 
     public StylusHomePage(WebDriver driver) {
+
         this.driver = driver;
     }
-    public StylusHomePage openMainPage (String url, String searchItem){
-        driver.get(url);
+
+    public StylusHomePage openMainPage(String searchItem) {
         searchField = driver.findElement(searchFieldLocator);
         searchField.sendKeys(searchItem);
         searchButton = driver.findElement(searchButtonLocator);

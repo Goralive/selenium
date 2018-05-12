@@ -1,4 +1,4 @@
-package selenium.pages.google;
+package selenium.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +13,7 @@ public class GoogleSearchPage {
     private WebDriver driver;
 
     public GoogleSearchPage(WebDriver driver) {
+
         this.driver = driver;
     }
 

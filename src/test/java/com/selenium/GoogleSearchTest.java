@@ -1,9 +1,9 @@
-package com.selenium.google;
+package com.selenium;
 
 import org.testng.annotations.*;
 import selenium.core.WebDriverTestBase;
-import selenium.pages.google.GoogleResultPage;
-import selenium.pages.google.GoogleSearchPage;
+import selenium.pages.GoogleResultPage;
+import selenium.pages.GoogleSearchPage;
 import static org.testng.Assert.assertTrue;
 
 public class GoogleSearchTest extends WebDriverTestBase {

@@ -14,7 +14,6 @@ public class WebDriverTestBase {
     protected WebDriverWait wait;
 
 
-
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
@@ -25,8 +24,10 @@ public class WebDriverTestBase {
 
 
     }
+
     @AfterTest
     public void tearDown() {
+
         driver.close();
     }
 }
