@@ -4,15 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class StylusResultPage {
-
-    private WebDriver driver;
+public class StylusResultPage extends AbstractPage {
 
     private By productDisplayedLocator = By.xpath(".//div[@id='search-list']//li[2]/a[@class='product-link']");
     private WebElement productDisplayed;
 
     public StylusResultPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public boolean verifyModel (String product){

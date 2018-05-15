@@ -4,21 +4,16 @@ package selenium.pages;
 import org.openqa.selenium.WebDriver;
 
 
-public class GmailUserPage {
+public class GmailUserPage extends AbstractPage {
 
-    private WebDriver webDriver;
-
-
-    public GmailUserPage(WebDriver webDriver) {
-
-        this.webDriver = webDriver;
+    public GmailUserPage(WebDriver driver) {
+        super(driver);
     }
 
 
     public boolean checkPage(String email) {
-
-        webDriver.getTitle();
-        return webDriver.getTitle().contains(email);
+        driver.getTitle();
+        return driver.getTitle().contains(email);
     }
 
 }

@@ -4,16 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class GoogleResultPage {
+public class GoogleResultPage extends AbstractPage {
     By linkLocator = By.xpath("//*[@id=\"rso\"]/div[2]/div/div[1]/div/div/h3/a");
+    public GoogleResultPage(WebDriver driver) {
+        super(driver);
 
-    private WebDriver webDriver;
-
-    public GoogleResultPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
     }
     public WebElement getLink(){
-        WebElement link = webDriver.findElement(linkLocator);
+        WebElement link = driver.findElement(linkLocator);
         return link;
     }
 }
