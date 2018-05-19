@@ -7,7 +7,7 @@ abstract class AbstractPage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public AbstractPage(WebDriver driver) {        ;
+    public AbstractPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(this.driver,20);
     }

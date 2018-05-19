@@ -4,16 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 
 public class GmailLoginPage extends AbstractPage {
 
-    private By loginEmailLocator = By.xpath(".//input[@id='identifierId']");
-    private By nextButtonEmailLocator = By.xpath(".//div[@id='identifierNext']");
-    private By passwordLocator = By.xpath(".//div[@id='password']//input");
-    private By nextButtonPasswordLocator = By.xpath(".//div[@id='passwordNext']/content");
-    private By waitUntilPageLoadedLocator = By.xpath("//div[@id='gbq1']");
+    By loginEmailLocator = By.xpath(".//input[@id='identifierId']");
+    By nextButtonEmailLocator = By.xpath(".//div[@id='identifierNext']");
+    By passwordLocator = By.xpath(".//div[@id='password']//input");
+    By nextButtonPasswordLocator = By.xpath(".//div[@id='passwordNext']/content");
+    By waitUntilPageLoadedLocator = By.xpath("//div[@id='gbq1']");
+
 
     private WebElement emailField;
     private WebElement nextButtonEmail;
@@ -27,9 +28,8 @@ public class GmailLoginPage extends AbstractPage {
     }
 
     public boolean userEmailPassword(String email, String password) {
-
-            WebDriverWait webDriverWait = new WebDriverWait(driver,10);
-
+         String urlGmail = "http://gmail.com";
+         driver.get(urlGmail);
         if (driver.getTitle().toLowerCase().contains("Gmail".toLowerCase())) {
             emailField = driver.findElement(loginEmailLocator);
             nextButtonEmail = driver.findElement(nextButtonEmailLocator);
@@ -40,7 +40,7 @@ public class GmailLoginPage extends AbstractPage {
             passwordField.sendKeys(password);
             nextButtonPasword.click();
             waitUntilPageLoaded = driver.findElement(waitUntilPageLoadedLocator);
-            webDriverWait.until(ExpectedConditions.visibilityOf(waitUntilPageLoaded));
+            wait.until(ExpectedConditions.visibilityOf(waitUntilPageLoaded));
             System.out.println("This url is GMAIL");
             return true;
         } else {
