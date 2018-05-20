@@ -1,11 +1,11 @@
-package com.selenium.stylus;
+package com.selenium;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.core.WebDriverTestBase;
-import selenium.pages.stylus.StylusHomePage;
-import selenium.pages.stylus.StylusProductPage;
-import selenium.pages.stylus.StylusResultPage;
+import selenium.pages.StylusHomePage;
+import selenium.pages.StylusProductPage;
+import selenium.pages.StylusResultPage;
 
 
 public class StylusFindProductTest extends WebDriverTestBase {
@@ -15,22 +15,22 @@ public class StylusFindProductTest extends WebDriverTestBase {
     private String chromeUrlStylus = "https://stylus.ua/";
 
 
-    @Test(priority = 1)
+    @Test (priority = 1)
     public void openUrlStylus() {
+        driver.get(chromeUrlStylus);
         StylusHomePage stylusHomePage = new StylusHomePage(driver);
-        stylusHomePage.openMainPage(chromeUrlStylus, searchItem);
+        stylusHomePage.openMainPage(searchItem);
 
     }
 
-
-    @Test(priority = 2)
+    @Test (priority = 2)
     public void verifyCorrectMobile() {
         StylusResultPage stylusResultPage = new StylusResultPage(driver);
         Assert.assertTrue(stylusResultPage.verifyModel(searchItem));
 
     }
 
-    @Test(priority = 3)
+    @Test (priority = 3)
     public void redirectToProductPageAndCheck() {
         StylusProductPage stylusProductPage = new StylusProductPage(driver);
         Assert.assertTrue(stylusProductPage.checkProduct(searchItem));

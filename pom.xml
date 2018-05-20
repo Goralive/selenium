@@ -6,6 +6,7 @@
 
     <groupId>com.selenium</groupId>
     <artifactId>Selenium</artifactId>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -14,8 +15,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <webdrivermanager.version>2.2.1</webdrivermanager.version>
         <testng.version>6.14.3</testng.version>
-        <selenium-java>3.11.0</selenium-java>
+        <selenium-java>3.4.0</selenium-java>
     </properties>
+    <profiles>
+        <profile>
+            <id>jackson</id>
+            <properties>
+                <browser.name>chrome</browser.name>
+            </properties>
+        </profile>
+    </profiles>
+
+    <name>selenium</name>
+    <url>http://maven.apache.org</url>
+
 
     <dependencies>
         <dependency>
@@ -28,7 +41,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -42,7 +54,6 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
-
     </dependencies>
 
 </project>
