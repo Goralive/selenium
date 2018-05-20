@@ -7,6 +7,8 @@ import selenium.pages.GmailLoginPage;
 import selenium.pages.GmailUserPage;
 
 
+//TODO 1. Login to the mail 2. Login to the gmail. 3. Login to the gmail and verify your creds
+
 public class LoginToGmailTest extends WebDriverTestBase {
 
     private String emailForTest = "jacksonford292@gmail.com";

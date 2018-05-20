@@ -11,6 +11,7 @@ public class PropertiesCache {
     private static final PropertiesCache INSTANCE = new PropertiesCache();
 
     private PropertiesCache() {
+
         InputStream in = getClass().getClassLoader().getResourceAsStream("test.properties");
         try {
             configProp.load(in);

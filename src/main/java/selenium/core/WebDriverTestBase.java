@@ -6,43 +6,60 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.remote.BrowserType.CHROME;
 import static org.openqa.selenium.remote.BrowserType.FIREFOX;
 
+/**
+ * General properties for test.
+ */
 
 public class WebDriverTestBase {
+    // WebDriver
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    private String browser = System.getProperty("browser", CHROME );
+
+    // Properties
+    private String browser = System.getProperty("browser", CHROME);
     private long implicitWait = Long.parseLong(PropertiesCache.getProperty("wait.implicity"));
     private long timeOutInSec = Long.parseLong(PropertiesCache.getProperty("timeOutInSec"));
 
+
     @BeforeTest
     public void setUp() {
-
-        switch (browser.toLowerCase()){
+        switch (browser.toLowerCase()) {
             case CHROME:
                 ChromeDriverManager.getInstance().setup();
                 driver = new ChromeDriver();
                 break;
-            case FIREFOX: //TODO -Dbrowser=firefox
+            /**
+             *  For test firefox add VM option -Dbrowser=firefox
+             */
+            case FIREFOX:
                 FirefoxDriverManager.getInstance().setup();
                 driver = new FirefoxDriver();
                 break;
         }
         wait = new WebDriverWait(driver, timeOutInSec);
         driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
+        // driver.get(PropertiesCache.getProperty("urlGoogle"));
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void tearDown() {
-        driver.close();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
+
 

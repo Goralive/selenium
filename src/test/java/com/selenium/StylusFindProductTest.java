@@ -8,6 +8,8 @@ import selenium.pages.StylusProductPage;
 import selenium.pages.StylusResultPage;
 
 
+//TODO 1. Page is open. 2. Find Product 3. Open page verify with Item that you try to find 4. Redrirection to product page
+
 public class StylusFindProductTest extends WebDriverTestBase {
 
 
