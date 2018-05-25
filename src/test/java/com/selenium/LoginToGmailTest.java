@@ -18,7 +18,6 @@ public class LoginToGmailTest extends WebDriverTestBase {
 
     @Test
     public void gmailLogIn() {
-
         driver.get(urlGmail);
         GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
         Assert.assertTrue(gmailLoginPage.userEmailPassword(emailForTest, passwordForTest));

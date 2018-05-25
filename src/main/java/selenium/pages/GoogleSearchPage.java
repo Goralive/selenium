@@ -12,17 +12,17 @@ import static selenium.core.PropertiesCache.getProperty;
 public class GoogleSearchPage extends AbstractPage {
 
 
-    @FindBy(xpath = ".//*[@id='lst-ib']")
+    @FindBy(css = "#lst-ib")
      WebElement searchField;
 
     public GoogleSearchPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+
     }
 
-    public GoogleSearchPage openGooglePage() {
+    public WebDriver openGooglePage() {
         driver.get(getProperty("urlGoogle"));
-        return new GoogleSearchPage(driver);
+        return driver;
     }
 
     public boolean isAt() {
@@ -36,7 +36,7 @@ public class GoogleSearchPage extends AbstractPage {
 
     public GoogleResultPage submitSearchField() {
         wait.until(ExpectedConditions.elementToBeClickable(searchField));
-        searchField.sendKeys("Mini CountyMan");
+        searchField.sendKeys(getProperty("google.search"));
         searchField.submit();
         return new GoogleResultPage(driver);
     }

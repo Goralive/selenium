@@ -12,21 +12,21 @@ import static org.testng.Assert.assertTrue;
 public class GoogleSearchTest extends WebDriverTestBase {
 
     //TODO 1. Verify google page 2. Add search text and verify search text. 3. Redirect to the page and verify searched text
-
+   //private GoogleSearchPage googleSearchPage;
 
     @Test
     public void verifyGooglePage() {
+
         GoogleSearchPage googleSearchPage = new GoogleSearchPage(driver);
         googleSearchPage.openGooglePage();
         assertTrue(googleSearchPage.isAt(),"Locator is wrong, TimeOut exception");
-
     }
     @Test
     public void searchFunctional () {
         GoogleSearchPage googleSearchPage = new GoogleSearchPage(driver);
         googleSearchPage.openGooglePage();
-        GoogleResultPage googleResultPage = googleSearchPage.submitSearchField();
-        googleResultPage.getLink();
-
+        googleSearchPage.submitSearchField();
     }
+//    @Test
+//    public void
 }

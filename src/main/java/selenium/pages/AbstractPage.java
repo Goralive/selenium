@@ -1,6 +1,7 @@
 package selenium.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,11 +13,8 @@ abstract class AbstractPage {
     protected WebDriverWait wait;
 
     protected AbstractPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 30);
-    }
-
-    public WebDriver getDriver() {
-        return driver;
     }
 }
