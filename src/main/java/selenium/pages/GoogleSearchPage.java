@@ -29,6 +29,7 @@ public class GoogleSearchPage extends AbstractPage {
         try {
             wait.until(ExpectedConditions.visibilityOf(searchField));
         } catch (TimeoutException e) {
+            System.out.println("There is no locator for google search");
             return false;
         }
         return true;
