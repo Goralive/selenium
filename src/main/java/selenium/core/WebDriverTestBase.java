@@ -24,6 +24,8 @@ public class WebDriverTestBase {
     private String browser = System.getProperty("browser", CHROME);
     private long implicitWait = Long.parseLong(PropertiesCache.getProperty("wait.implicity"));
     private long timeOutInSec = Long.parseLong(PropertiesCache.getProperty("timeOutInSec"));
+    private long pageWait = Long.parseLong(PropertiesCache.getProperty("wait.page"));
+    private long scriptWait = Long.parseLong(PropertiesCache.getProperty("wait.script"));
 
     // WebDriver
     protected WebDriver driver;
@@ -47,6 +49,8 @@ public class WebDriverTestBase {
         }
         wait = new WebDriverWait(driver, timeOutInSec);
         driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(pageWait, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(scriptWait, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         //driver.get(PropertiesCache.getProperty("urlGoogle"));

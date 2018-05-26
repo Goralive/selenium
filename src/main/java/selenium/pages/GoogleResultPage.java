@@ -13,7 +13,6 @@ public class GoogleResultPage extends AbstractPage {
 
     public String getTextFromSearchedItem;
 
-
     public GoogleResultPage(WebDriver driver) {
         super(driver);
     }
@@ -22,19 +21,20 @@ public class GoogleResultPage extends AbstractPage {
         try {
             wait.until(ExpectedConditions.visibilityOf(miniCouperLink));
         } catch (TimeoutException e) {
+            System.out.println("Element isn't visible or wrong locator");
             return false;
         }
         return true;
     }
 
     public String clickOnSearchElement() {
-        getTextFromSearchedItem = miniCouperLink.getText().substring(0,4);
+        getTextFromSearchedItem = miniCouperLink.getText().substring(0, 4);
         miniCouperLink.click();
         return getTextFromSearchedItem;
     }
 
     public boolean getTitleSearchedElement(String SearchItemText) {
-        if (driver.getTitle().toLowerCase().contains(SearchItemText.toLowerCase())){
+        if (driver.getTitle().toLowerCase().contains(SearchItemText.toLowerCase())) {
             return true;
         }
         return false;

@@ -2,9 +2,7 @@ package selenium.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 
 import static selenium.core.PropertiesCache.getProperty;
 
@@ -13,7 +11,7 @@ public class GoogleSearchPage extends AbstractPage {
 
 
     @FindBy(css = "#lst-ib")
-     WebElement searchField;
+    WebElement searchField;
 
     public GoogleSearchPage(WebDriver driver) {
         super(driver);
