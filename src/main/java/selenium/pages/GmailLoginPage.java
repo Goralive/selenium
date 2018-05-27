@@ -3,8 +3,8 @@ package selenium.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 
 
 public class GmailLoginPage extends AbstractPage {
@@ -24,12 +24,13 @@ public class GmailLoginPage extends AbstractPage {
 
 
     public GmailLoginPage(WebDriver driver) {
-            super(driver);
+        super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public boolean userEmailPassword(String email, String password) {
-         String urlGmail = "http://gmail.com";
-         driver.get(urlGmail);
+        String urlGmail = "http://gmail.com";
+        driver.get(urlGmail);
         if (driver.getTitle().toLowerCase().contains("Gmail".toLowerCase())) {
             emailField = driver.findElement(loginEmailLocator);
             nextButtonEmail = driver.findElement(nextButtonEmailLocator);
@@ -45,7 +46,7 @@ public class GmailLoginPage extends AbstractPage {
             return true;
         } else {
             System.out.println("This url not GMAIL!");
-           return false;
+            return false;
         }
     }
 }

@@ -9,7 +9,6 @@ import static org.testng.Assert.assertTrue;
 
 public class GoogleSearchTest extends WebDriverTestBase {
 
-    //TODO 1. Verify google page 2. Add search text and verify search text. 3. Redirect to the page and verify searched text
     //TODO make test all run, add Strings to properties, try to add URL strings to pages, cssSelector
 
     public GoogleSearchPage googleSearchPage;
@@ -23,20 +22,21 @@ public class GoogleSearchTest extends WebDriverTestBase {
     @Test
     public void verifyGooglePage() {
         googleSearchPage.openGooglePage();
-        assertTrue(googleSearchPage.isAt(), "Locator is wrong, TimeOut exception");
+        assertTrue(googleSearchPage.isAt());
     }
 
     @Test
     public void searchFunctional() {
         googleSearchPage.openGooglePage();
-        googleSearchPage.submitSearchField();
+        googleSearchPage.sendKeysSearchField();
     }
 
     @Test
     public void verifySearchedText() {
         googleResultPage = new GoogleResultPage(driver);
         googleSearchPage.openGooglePage();
-        googleSearchPage.submitSearchField();
+        googleSearchPage.sendKeysSearchField();
+        googleSearchPage.submitSearchfield();
         assertTrue(googleResultPage.checkIsElementIsPresent());
         googleResultPage.clickOnSearchElement();
         assertTrue(googleResultPage.getTitleSearchedElement(googleResultPage.getTextFromSearchedItem));

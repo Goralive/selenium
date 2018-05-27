@@ -8,11 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class GoogleResultPage extends AbstractPage {
 
-    @FindBy(css = "[data-hveid='81'] a")
+    @FindBy(css = "#rso div:nth-child(3) .rc a[href*='mini']")
     WebElement miniCouperLink;
 
     public String getTextFromSearchedItem;
-
     public GoogleResultPage(WebDriver driver) {
         super(driver);
     }

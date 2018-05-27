@@ -27,15 +27,17 @@ public class GoogleSearchPage extends AbstractPage {
         try {
             wait.until(ExpectedConditions.visibilityOf(searchField));
         } catch (TimeoutException e) {
-            System.out.println("There is no locator for google search");
+            System.out.println("Timeout Exception");
             return false;
         }
         return true;
     }
 
-    public GoogleResultPage submitSearchField() {
+    public void sendKeysSearchField() {
         wait.until(ExpectedConditions.elementToBeClickable(searchField));
         searchField.sendKeys(getProperty("google.search"));
+    }
+    public GoogleResultPage submitSearchfield (){
         searchField.submit();
         return new GoogleResultPage(driver);
     }
