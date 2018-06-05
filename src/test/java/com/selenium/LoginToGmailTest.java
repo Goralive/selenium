@@ -1,33 +1,36 @@
 package com.selenium;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import selenium.core.WebDriverTestBase;
 import selenium.pages.GmailLoginPage;
 import selenium.pages.GmailUserPage;
 
+import static org.testng.Assert.assertTrue;
 
 //TODO 1. Login to the mail 2. Login to the gmail. 3. Login to the gmail and verify your creds
 
 public class LoginToGmailTest extends WebDriverTestBase {
 
-    private String emailForTest = "jacksonford292@gmail.com";
-    private String passwordForTest = "SuperSecret123";
-    private String urlGmail = "http://gmail.com";
+    public GmailLoginPage gmailLoginPage;
+    public GmailUserPage gmailUserPage;
+
+  @BeforeClass
+  public void setupObjects(){
+       gmailUserPage = new GmailUserPage(driver);
+       gmailLoginPage = new GmailLoginPage(driver);
+  }
 
 
     @Test
-    public void gmailLogIn() {
-        driver.get(urlGmail);
-        GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
-        Assert.assertTrue(gmailLoginPage.userEmailPassword(emailForTest, passwordForTest));
+    public void verifyGmailLogInPage() {
+        gmailLoginPage.openGmailPage();
+        assertTrue(gmailLoginPage.isAtLoginPage());
     }
 
 
     @Test
     public void verifyLoginGmail() {
-        GmailUserPage gmailUserPage = new GmailUserPage(driver);
-        Assert.assertTrue(gmailUserPage.checkPage(emailForTest));
+         assertTrue(gmailUserPage.checkPage());
 
     }
 }

@@ -1,0 +1,18 @@
+
+<suite name="Google tests" verbose="1">
+    <tests>
+        <test name="Google"> <!-- Start class  -->
+            <classes>
+                <class name="com.selenium.GoogleSearchTest" />
+                <class name="com.selenium.LoginToGmailTest" />
+                <class name="com.selenium.StylusFindProductTest" />
+            </classes>
+        </test>
+          <!--   </test>
+             <test name="All package">  Start whole package comment me plz
+            <packages>
+                <package name="com.selenium"/>
+            </packages>
+        </test> -->
+    </tests>
+</suite>

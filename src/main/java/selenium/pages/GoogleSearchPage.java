@@ -1,5 +1,6 @@
 package selenium.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,7 +18,7 @@ public class GoogleSearchPage extends AbstractPage {
         super(driver);
 
     }
-
+    @Step("Get Google Url")
     public WebDriver openGooglePage() {
         driver.get(getProperty("urlGoogle"));
         return driver;
