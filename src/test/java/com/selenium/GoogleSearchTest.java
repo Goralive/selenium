@@ -7,8 +7,8 @@ import selenium.pages.GoogleResultPage;
 import selenium.pages.GoogleSearchPage;
 
 import static org.testng.Assert.assertTrue;
-
-//TODO make test all run, add Strings to properties, try to add URL strings to pages, cssSelector
+//TODO Desirable Push -> GitHub -> Hook -> Jenkins Build Deploy Hook -> Job UI -> HUB
+//TODO make test all run, add Strings to properties, try to add URL strings to pages, cssSelector, BBD, method coverage 100% :-)
 
 public class GoogleSearchTest extends WebDriverTestBase {
 

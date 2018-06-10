@@ -17,10 +17,10 @@
         <testng.version>6.14.3</testng.version>
         <selenium-java>3.4.0</selenium-java>
         <poi-ooxml>3.17</poi-ooxml>
-        <cucumber-java>1.2.4</cucumber-java>
         <allure-testng.version>2.0-BETA21</allure-testng.version>
         <aspectj.version>1.8.13</aspectj.version>
         <maven.surefire.plugin>2.20.1</maven.surefire.plugin>
+        <io.cucumber.version>2.3.1</io.cucumber.version>
     </properties>
     <profiles>
         <profile>
@@ -65,12 +65,6 @@
             <artifactId>poi-ooxml</artifactId>
             <version>${poi-ooxml}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber-java}</version>
-        </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -80,6 +74,17 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
+        </dependency>
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${io.cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${io.cucumber.version}</version>
         </dependency>
     </dependencies>
 
