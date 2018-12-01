@@ -1,24 +1,45 @@
 package selenium.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.qameta.allure.Step;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static selenium.core.PropertiesCache.getProperty;
 
 
 public class GoogleSearchPage extends AbstractPage {
 
-    By searchLocator = By.xpath(".//*[@id='lst-ib']");
 
-    private WebElement searchField;
+    @FindBy(css = "#lst-ib")
+    WebElement searchField;
 
     public GoogleSearchPage(WebDriver driver) {
         super(driver);
+
+    }
+    @Step("Get Google Url")
+    public WebDriver openGooglePage() {
+        driver.get(getProperty("urlGoogle"));
+        return driver;
     }
 
-    public void search (String searchText){
-        searchField = wait.until(ExpectedConditions.elementToBeClickable(searchLocator));
-        searchField.sendKeys(searchText);
+    public boolean isAt() {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(searchField));
+        } catch (TimeoutException e) {
+            System.out.println("Timeout Exception");
+            return false;
+        }
+        return true;
+    }
+
+    public void sendKeysSearchField() {
+        wait.until(ExpectedConditions.elementToBeClickable(searchField));
+        searchField.sendKeys(getProperty("google.search"));
+    }
+    public GoogleResultPage submitSearchfield (){
         searchField.submit();
+        return new GoogleResultPage(driver);
     }
 }

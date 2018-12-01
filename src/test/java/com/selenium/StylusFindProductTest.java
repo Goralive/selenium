@@ -8,6 +8,8 @@ import selenium.pages.StylusProductPage;
 import selenium.pages.StylusResultPage;
 
 
+//TODO 1. Page is open. 2. Find Product 3. Open page verify with Item that you try to find 4. Redrirection to product page
+
 public class StylusFindProductTest extends WebDriverTestBase {
 
 
@@ -15,7 +17,7 @@ public class StylusFindProductTest extends WebDriverTestBase {
     private String chromeUrlStylus = "https://stylus.ua/";
 
 
-    @Test (priority = 1)
+    @Test ()
     public void openUrlStylus() {
         driver.get(chromeUrlStylus);
         StylusHomePage stylusHomePage = new StylusHomePage(driver);
@@ -23,14 +25,14 @@ public class StylusFindProductTest extends WebDriverTestBase {
 
     }
 
-    @Test (priority = 2)
+    @Test ()
     public void verifyCorrectMobile() {
         StylusResultPage stylusResultPage = new StylusResultPage(driver);
         Assert.assertTrue(stylusResultPage.verifyModel(searchItem));
 
     }
 
-    @Test (priority = 3)
+    @Test ()
     public void redirectToProductPageAndCheck() {
         StylusProductPage stylusProductPage = new StylusProductPage(driver);
         Assert.assertTrue(stylusProductPage.checkProduct(searchItem));
