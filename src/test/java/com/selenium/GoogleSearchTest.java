@@ -12,15 +12,15 @@ import static org.testng.Assert.assertTrue;
 
 public class GoogleSearchTest extends WebDriverTestBase {
 
-    public GoogleSearchPage googleSearchPage;
-    public GoogleResultPage googleResultPage;
+    private GoogleSearchPage googleSearchPage;
+    private GoogleResultPage googleResultPage;
 
     @BeforeClass
     public void setupObjects() {
         googleSearchPage = new GoogleSearchPage(driver);
         googleResultPage = new GoogleResultPage(driver);
     }
-    @Step("Verify google")
+
     @Test
     public void verifyGooglePage() {
         googleSearchPage.openGooglePage();

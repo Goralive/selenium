@@ -25,6 +25,10 @@ import static org.openqa.selenium.remote.BrowserType.FIREFOX;
 @Listeners(selenium.core.TestListener.class)
 public class WebDriverTestBase {
 
+    // WebDriver
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+
     // Properties
     private String browser = System.getProperty("browser", CHROME);
     private long implicitWait = Long.parseLong(PropertiesCache.getProperty("wait.implicity"));
@@ -41,9 +45,7 @@ public class WebDriverTestBase {
         return caps;
     }
 
-    // WebDriver
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+
 
     @Parameters({"platform", "remoteBrowser"})
     @BeforeClass
@@ -72,6 +74,8 @@ public class WebDriverTestBase {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         //driver.get(PropertiesCache.getProperty("urlGoogle"));
+
+        //TODO SQL + CUCUMBER
     }
 
     @AfterClass(alwaysRun = true)
