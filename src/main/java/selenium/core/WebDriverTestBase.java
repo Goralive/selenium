@@ -46,7 +46,6 @@ public class WebDriverTestBase {
     }
 
 
-
     @Parameters({"platform", "remoteBrowser"})
     @BeforeClass
     public void setUp(@Optional String platform, @Optional String remoteBrowser) throws MalformedURLException {
